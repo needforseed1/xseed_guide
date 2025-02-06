@@ -2,8 +2,9 @@
 
 This guide provides step-by-step instructions to integrate the `xseed.sh` script with Sonarr and Radarr, ensuring automated cross-seeding functionality upon media imports and upgrades.
 
+NOTE 1: Note: This guide assumes your Docker container is named cross-seed. If yours has a different name, adjust the commands accordingly.
 
-NOTE: If you want xseed to trigger on single episode downloads from Usenet, use [xseed_episode.sh](https://github.com/theneedforseed/xseed_guide/blob/main/xseed_episode.sh)
+NOTE 2: If you want xseed to trigger on single episode downloads from Usenet, use [xseed_episode.sh](https://github.com/needforseed1/xseed_guide/blob/main/xseed_episode.sh)
 
 ---
 
@@ -61,10 +62,8 @@ To allow the `xseed.sh` script to communicate with the cross-seed daemon, you'll
 1. **Extract the api-key from the cross-seed docker container:**
 
    ```sh
-   docker exec -it [cross-seed] cross-seed api-key   
+   docker exec -it cross-seed cross-seed api-key   
    ```
-
-   Replace `[cross-seed]` with the actual name of your cross-seed container if it's different.
 
 2. **Update the `.env` File:**
 
@@ -123,8 +122,12 @@ To allow the `xseed.sh` script to communicate with the cross-seed daemon, you'll
 
 ### 6. Testing
 
-- To ensure the script is functioning correctly, perform a test import in Sonarr or Radarr.
-- After the import completes, check the log file specified in the configuration (e.g., `/config/xseed.log`) for entries indicating that the script executed successfully.
+Test the script with a Sonarr or Radarr import. Then check for success messages either in your log file (e.g., /config/xseed.log) or by running:
+
+   ```sh
+   docker logs cross-seed
+   ```
+
 
 ---
 
