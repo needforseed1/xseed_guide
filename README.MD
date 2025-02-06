@@ -61,7 +61,8 @@ To allow the `xseed.sh` script to communicate with the cross-seed daemon, you'll
 1. **Extract the api-key from the cross-seed docker container:**
 
    ```sh
-   docker exec -it [cross-seed] cross-seed api-key   ```
+   docker exec -it [cross-seed] cross-seed api-key   
+   ```
 
    Replace `[cross-seed]` with the actual name of your cross-seed container if it's different.
 
