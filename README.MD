@@ -58,29 +58,14 @@ To allow the `xseed.sh` script to communicate with the cross-seed daemon, you'll
 
 #### Steps
 
-1. **Access the Cross-Seed Docker Container:**
+1. **Extract the api-key from the cross-seed docker container:**
 
    ```sh
-   docker exec -it cross-seed sh
-   ```
+   docker exec -it [cross-seed] cross-seed api-key   ```
 
-   Replace `cross-seed` with the actual name of your cross-seed container if it's different.
+   Replace `[cross-seed]` with the actual name of your cross-seed container if it's different.
 
-2. **Retrieve the API Key:**
-
-   ```sh
-   cross-seed api-key
-   ```
-
-   This command will display your cross-seed API key.
-
-3. **Exit the Container:**
-
-   ```sh
-   exit
-   ```
-
-4. **Update the `.env` File:**
+2. **Update the `.env` File:**
 
    ```ini
    XSEED_APIKEY="your_api_key_here"
